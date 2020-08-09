@@ -1,35 +1,39 @@
 {
-  "author": "James Weston",
-  "name": "traceroute",
-  "description": "Wrapper around native traceroute command",
-  "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jaw187/node-traceroute.git"
-  },
-  "engines": {
-    "node": ">=4.0.0"
-  },
-  "devDependencies": {
-    "code": "2.x.x",
-    "lab": "10.x.x"
-  },
-  "bugs": {
-    "url": "https://github.com/jaw187/node-traceroute/issues"
-  },
-  "homepage": "https://github.com/jaw187/node-traceroute#readme",
-  "main": "traceroute.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "lab -v -m 20000 -p"
-  },
-  "keywords": [
-    "traceroute",
-    "network",
-    "trace",
-    "route"
-  ],
-  "license": "ISC"
+    "author": "James Weston",
+    "name": "traceroute",
+    "description": "Wrapper around native traceroute command",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ThatOneNeji/node-traceroute.git"
+    },
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "devDependencies": {
+        "@hapi/code": "8.x.x",
+        "@hapi/lab": "23.x.x",
+        "eslint": "^7.6.0",
+        "eslint-config-google": "^0.14.0",
+        "ink-docstrap": "^1.3.2",
+        "jsdoc": "^3.6.5"
+    },
+    "bugs": {
+        "url": "https://github.com/ThatOneNeji/node-traceroute/issues"
+    },
+    "homepage": "https://github.com/ThatOneNeji/node-traceroute#readme",
+    "main": "traceroute.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "lab -v -m 20000 -p"
+    },
+    "keywords": [
+        "traceroute",
+        "network",
+        "trace",
+        "route"
+    ],
+    "license": "ISC"
 }

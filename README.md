@@ -1,12 +1,17 @@
-node-traceroute
-===============
+# Node.js TracerouteExt
+
+[![Build Status](https://travis-ci.org/ThatOneNeji/node-tracerouteext.svg?branch=master)](https://travis-ci.org/ThatOneNeji/node-tracerouteext)
 
 Simple wrapper around native traceroute command.  Each hop contains the hosts in that hop and the respective round trip times of each host.
+
+This project is based heavily on https://github.com/jaw187/node-traceroute
+I was going to fork that project but I've realised that my fork would contain breaking changes when compared to the results from the original package (node-mtr), hence 'TracerouteExt' -> "Traceroute Extended"
+
 
 # Install
 
 ```
-$ npm install traceroute
+$ npm install tracerouteext
 ```
 
 # Usage
@@ -14,7 +19,7 @@ The `trace` method will always return a steam and will call an optional callback
 
 ## Stream
 ```javascript
-const Traceroute = require('traceroute');
+const Traceroute = require('tracerouteext');
 
 const trace = Traceroute.trace('google.com');
 
