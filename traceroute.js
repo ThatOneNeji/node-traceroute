@@ -18,21 +18,17 @@ internals.isWin = /^win/.test(Os.platform());
 module.exports = internals.Traceroute = {};
 
 
-internals.Traceroute.trace = function (host, callback) {
-
-    const Emitter = function () {
-
+internals.Traceroute.trace = function(host, callback) {
+    const Emitter = function() {
         EventEmitter.call(this);
     };
     Util.inherits(Emitter, EventEmitter);
     const emitter = new Emitter();
 
     Dns.lookup(host.toUpperCase(), (err) => {
-
         if (err && Net.isIP(host) === 0) {
             return callback(new Error('Invalid host'));
         }
-
         const command = (internals.isWin ? 'tracert' : 'traceroute');
         const args = internals.isWin ? ['-d', host] : ['-q', 1, '-n', host];
         const traceroute = Child.spawn(command, args);
@@ -40,13 +36,12 @@ internals.Traceroute.trace = function (host, callback) {
         const hops = [];
         let counter = 0;
         traceroute.stdout.on('data', (data) => {
-
             ++counter;
             if ((!internals.isWin && counter < 2) || (internals.isWin && counter < 5)) {
                 return null;
             }
 
-            const result = data.toString().replace(/\n$/,'');
+            const result = data.toString().replace(/\n$/, '');
             if (!result) {
                 return null;
             }
@@ -57,31 +52,28 @@ internals.Traceroute.trace = function (host, callback) {
         });
 
         traceroute.on('close', (code) => {
-
             if (callback) {
                 callback(null, hops);
             }
-
             emitter.emit('done', hops);
         });
     });
-    
+
     return emitter;
 };
 
 
-internals.parseHop = function (hop) {
-
-    let line = hop.replace(/\*/g,'0');
+internals.parseHop = function(hop) {
+    let line = hop.replace(/\*/g, '0');
 
     if (internals.isWin) {
-        line = line.replace(/\</g,'');
+        line = line.replace(/\</g, '');
     }
 
     const s = line.split(' ');
     for (let i = s.length - 1; i > -1; --i) {
         if (s[i] === '' || s[i] === 'ms') {
-            s.splice(i,1);
+            s.splice(i, 1);
         }
     }
 
@@ -89,8 +81,7 @@ internals.parseHop = function (hop) {
 };
 
 
-internals.parseHopWin = function (line) {
-
+internals.parseHopWin = function(line) {
     if (line[4] === 'Request') {
         return false;
     }
@@ -102,8 +93,7 @@ internals.parseHopWin = function (line) {
 };
 
 
-internals.parseHopNix = function (line) {
-
+internals.parseHopNix = function(line) {
     if (line[1] === '0') {
         return false;
     }
@@ -119,8 +109,7 @@ internals.parseHopNix = function (line) {
             if (!hop[lastip]) {
                 hop[lastip] = [];
             }
-        }
-        else {
+        } else {
             hop[lastip].push(+line[i]);
         }
     }
