@@ -1,27 +1,27 @@
 {
-    "author": "James Weston",
+    "author": "ThatOneNeji",
     "name": "traceroute",
     "description": "Wrapper around native traceroute command",
     "version": "1.0.0",
     "repository": {
         "type": "git",
-        "url": "git://github.com/ThatOneNeji/node-traceroute.git"
+        "url": "git://github.com/ThatOneNeji/node-tracerouteext.git"
     },
     "engines": {
-        "node": ">=4.0.0"
+        "node": ">=12.0.0"
     },
     "devDependencies": {
-        "@hapi/code": "8.x.x",
-        "@hapi/lab": "23.x.x",
-        "eslint": "^7.6.0",
+        "@hapi/code": "^8.0.2",
+        "@hapi/lab": "^23.0.0",
+        "eslint": "^7.7.0",
         "eslint-config-google": "^0.14.0",
         "ink-docstrap": "^1.3.2",
         "jsdoc": "^3.6.5"
     },
     "bugs": {
-        "url": "https://github.com/ThatOneNeji/node-traceroute/issues"
+        "url": "https://github.com/ThatOneNeji/node-tracerouteext/issues"
     },
-    "homepage": "https://github.com/ThatOneNeji/node-traceroute#readme",
+    "homepage": "https://github.com/ThatOneNeji/node-tracerouteext#readme",
     "main": "traceroute.js",
     "directories": {
         "test": "test"

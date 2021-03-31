@@ -19,6 +19,8 @@ module.exports = internals.Traceroute = {};
 
 
 internals.Traceroute.trace = function(host, callback) {
+    const args = [];
+
     const Emitter = function() {
         EventEmitter.call(this);
     };
